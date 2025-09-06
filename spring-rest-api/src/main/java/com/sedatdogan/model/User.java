@@ -9,8 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee {
-	public String id;
-	public String firstName;
-	public String lastName;
+
+public class User {
+	String id;
+	String firstName;
+	String lastName;
 }
