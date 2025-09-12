@@ -2,16 +2,17 @@ package com.sedatdogan.services;
 
 import java.util.List;
 
-import com.sedatdogan.entities.Student;
+import com.sedatdogan.dto.DtoStudent;
+import com.sedatdogan.dto.DtoStudentIU;
 
 public interface IStudentService {
-    public Student saveStudent(Student student);
+    public DtoStudent saveStudent(DtoStudentIU dtoStudentIU);
     
-    public List<Student> getAllStudents();
+    public List<DtoStudent> getAllStudents();
     
-	public Student getStudentById(int id);
+	public DtoStudent getStudentById(int id);
 
 	public void deleteStudent(int id); // Hibernate'de delete void döner çünkü sadece silme işlemi yapar, geri döndürülecek nesne yoktur.
 	
-	public Student updateStudent(int id, Student updateStudent);
+	public DtoStudent updateStudent(int id, DtoStudentIU dtoStudentIU);
 }

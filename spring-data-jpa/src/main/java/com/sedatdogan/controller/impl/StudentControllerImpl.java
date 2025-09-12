@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sedatdogan.controller.IStudentController;
+import com.sedatdogan.dto.DtoStudent;
+import com.sedatdogan.dto.DtoStudentIU;
 import com.sedatdogan.entities.Student;
 import com.sedatdogan.services.IStudentService;
 
@@ -26,19 +27,19 @@ public class StudentControllerImpl implements IStudentController {
 
     @PostMapping("/save")
     @Override
-    public Student saveStudent(@RequestBody Student student) {
-        return studentService.saveStudent(student);
+    public DtoStudent saveStudent(@RequestBody DtoStudentIU dtoStudentIU) {
+        return studentService.saveStudent(dtoStudentIU);
     }
 
     @Override
 	@GetMapping("/all")
-	public List<Student> getAllStudents(){
+	public List<DtoStudent> getAllStudents(){
     	return studentService.getAllStudents();
     }
 
 	@Override
 	@GetMapping("/all/{id}")
-	public Student getStudentById(@PathVariable (name = "id")int id) {
+	public DtoStudent getStudentById(@PathVariable (name = "id")int id) {
 		return studentService.getStudentById(id);
 	}
 
@@ -50,10 +51,10 @@ public class StudentControllerImpl implements IStudentController {
 
 	@Override
 	@PutMapping("/update/{id}")
-	public Student updateStudent(
+	public DtoStudent updateStudent(
 	        @PathVariable(name = "id") int id,
-	        @RequestBody Student updateStudent) {
+	        @RequestBody DtoStudentIU dtoStudentIU) {
 	    
-	    return studentService.updateStudent(id, updateStudent);
+	    return studentService.updateStudent(id, dtoStudentIU);
 	}
 }
